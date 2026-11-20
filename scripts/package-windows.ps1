@@ -62,8 +62,9 @@ Copy-Item -LiteralPath (Join-Path $WebViewSdkPath 'NOTICE.txt') -Destination (Jo
 $csc = Join-Path $env:windir 'Microsoft.NET/Framework64/v4.0.30319/csc.exe'
 $source = Join-Path $project 'desktop/Launcher.cs'
 $windowSource = Join-Path $project 'desktop/ChatWindow.cs'
+$appIcon = Join-Path $project 'desktop/app.ico'
 $launcher = Join-Path $release '打开鲸之心.exe'
-& $csc /nologo /target:winexe /platform:x64 /optimize+ /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/reference:$webCore" "/reference:$webForms" "/out:$launcher" $source $windowSource
+& $csc /nologo /target:winexe /platform:x64 /optimize+ /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/reference:$webCore" "/reference:$webForms" "/win32icon:$appIcon" "/out:$launcher" $source $windowSource
 if ($LASTEXITCODE) { throw 'Windows launcher build failed.' }
 Copy-Item -LiteralPath $launcher -Destination (Join-Path $release '预览鲸之心.exe')
 @"

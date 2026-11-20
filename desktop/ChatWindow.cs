@@ -24,6 +24,7 @@ internal sealed class ChatWindow : Form
         this.check = check;
         this.preview = preview;
         Text = preview ? "鲸之心 · 本地聊天（预览）" : "鲸之心 · 本地聊天";
+        Icon = System.Drawing.Icon.ExtractAssociatedIcon(Application.ExecutablePath);
         StartPosition = FormStartPosition.CenterScreen;
         AutoScaleMode = AutoScaleMode.Dpi;
         Size = new Size(1250, 865);
