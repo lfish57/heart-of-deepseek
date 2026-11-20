@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>鲸之心 · 记忆</title>
+<link rel="stylesheet" href="/memory.css">
+<body class="memory-page-body">
+<header class="desktop-menubar memory-page-menubar">
+  <nav aria-label="应用菜单">
+    <a data-chat-link href="/">对话</a>
+    <a href="/memory.html" class="is-current" aria-current="page">记忆</a>
+    <a id="memory-role-link" href="/roles.html">角色管理</a>
+  </nav>
+</header>
+<main class="workspace-shell">
+  <aside class="workspace-side memory-page-sidebar">
+    <h1 class="workspace-side-title">记忆</h1>
+    <div class="workspace-side-links" role="group" aria-label="记忆分类">
+      <button type="button" data-memory-view="library" aria-controls="memory-list" aria-pressed="true">记忆库</button>
+      <button type="button" data-memory-view="experiences" aria-controls="experience-section" aria-pressed="false">共同经历</button>
+    </div>
+  </aside>
+  <section class="workspace-card memory-page-workspace" aria-labelledby="memory-title">
+    <header class="memory-page-header">
+      <div><h2 id="memory-title">记忆库</h2><p id="memory-owner"></p></div>
+      <div class="memory-header-actions">
+        <label class="workspace-role-picker">当前角色<select id="memory-role" disabled></select></label>
+        <button type="button" class="memory-action-primary" id="memory-add" disabled>新增记忆</button>
+      </div>
+    </header>
+    <div class="memory-library-view">
+      <div class="memory-page-toolbar">
+        <label class="memory-search">
+          <span aria-hidden="true">⌕</span>
+          <input id="memory-search" type="search" aria-label="搜索主题或事实" placeholder="搜索主题或事实…" autocomplete="off">
+        </label>
+        <span id="memory-count" class="memory-count"></span>
+      </div>
+      <p class="memory-page-feedback" id="memory-feedback" role="status"></p>
+      <div class="memory-record-grid" id="memory-list"></div>
+      <section id="experience-section" aria-label="共同经历" hidden>
+        <p id="experience-hint" hidden></p>
+        <div class="memory-record-grid" id="experience-list"></div>
+      </section>
+    </div>
+  </section>
+</main>
+<dialog class="memory-page-dialog" id="memory-dialog" aria-labelledby="memory-dialog-title">
+  <header>
+    <h2 id="memory-dialog-title">新增记忆</h2>
+    <button type="button" class="memory-page-close" id="memory-close" aria-label="关闭">×</button>
+  </header>
+  <form class="memory-edit-form" id="memory-form">
+    <label>主题<input name="topic" maxlength="80" required></label>
+    <label>类型<select name="kind"><option value="fact">事实</option><option value="agreement">约定</option></select></label>
+    <div id="agreement-fields" hidden>
+      <label>约定时间<input name="due" maxlength="80" placeholder="填写约定中的时间"></label>
+      <label>状态<select name="state"><option value="pending">待完成</option><option value="completed">已完成</option><option value="cancelled">已取消</option></select></label>
+    </div>
+    <label>事实<textarea name="fact" rows="4" maxlength="600" required></textarea></label>
+    <label>出处<select name="source"><option value="">手动确认</option></select></label>
+    <p id="memory-hint"></p>
+    <div class="memory-form-actions">
+      <button type="button" class="memory-action-secondary" id="memory-cancel">取消</button>
+      <button type="submit" class="memory-action-primary" id="memory-save">保存记忆</button>
+    </div>
+    <p id="memory-error" data-tone="error" role="status" hidden></p>
+  </form>
+</dialog>
+<script type="module" src="/memory.mjs"></script>
+</body>
+</html>

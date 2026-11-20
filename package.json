@@ -1,0 +1,11 @@
+{
+  "name": "heart-of-deepseek",
+  "version": "0.1.0",
+  "description": "鲸之心 / Heart of Deepseek · 面向自然回复的极简本地聊天应用",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=24"},
+  "scripts": {"start": "node server.mjs", "test": "node --test"},
+  "dependencies": {"js-yaml": "4.1.1"}
+}

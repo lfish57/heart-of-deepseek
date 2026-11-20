@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="几何鱼头像">
+  <rect width="80" height="80" rx="24" fill="#173a34"/>
+  <path d="M15 40c10-19 32-20 43-5l11-10v30L58 45c-11 15-33 14-43-5Z" fill="#dce5af"/>
+  <path d="M32 34a7 7 0 0 0 0 12" fill="none" stroke="#4c9480" stroke-width="2"/>
+  <circle cx="25" cy="39" r="2.5" fill="#173a34"/>
+</svg>
